@@ -14,7 +14,6 @@ public class SectionListProject {
         // allow a user to look up a section by CRN
         myList.search();
 
-
     }// end main()
 
 }// end SectionListProject

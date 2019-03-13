@@ -46,7 +46,7 @@ public class SectionList {
 
     }//end loadArray
 
-    public static void search(State[] Section){
+    public static void search(Section[] Section){
 
         Scanner keyboard = new Scanner(System.in);
 
@@ -86,11 +86,10 @@ public class SectionList {
 
     }//end search
 
-    public static voide printArray(){
+    public static void printArray(){
 
         System.out.println("Data from the array of courses:\n");
-        for(i=0; i<; i++)
-        {
+        for(i=0; i<50; i++) {
             System.out.print("Subject: ");
             System.out.println(Section[i].getSubject());
             System.out.print("Course: ");
@@ -106,6 +105,7 @@ public class SectionList {
             System.out.print("Days: ");
             System.out.println(Section[i].getDays());
             System.out.println(" ");
+        }
 
     }// end printArray
 
