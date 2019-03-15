@@ -1,12 +1,12 @@
 public class SectionListProject {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception {
 
         // instantiate a list object
         SectionList myList = new SectionList();
 
         // load the list with data from a data file
-        myList.loadArray();
+       // myList.loadArray();
 
         // print the entire list of sections
         myList.printArray();

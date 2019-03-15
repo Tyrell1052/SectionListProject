@@ -44,6 +44,8 @@ public class SectionList {
 
         inFile.close();
 
+
+
     }//end loadArray
 
     public static void search(Section[] Section){
@@ -86,24 +88,31 @@ public class SectionList {
 
     }//end search
 
-    public static void printArray(){
+    public static void printArray() throws Exception {
+
+        Section[] sectionInfo = new Section[50]; //
+
+        int i = 0; // loop counter
+
+        SectionList.loadArray(sectionInfo);// call the method to load the array
+
 
         System.out.println("Data from the array of courses:\n");
         for(i=0; i<50; i++) {
             System.out.print("Subject: ");
-            System.out.println(Section[i].getSubject());
+            System.out.println(sectionInfo[i].getSubject());
             System.out.print("Course: ");
-            System.out.println(Section[i].getCourse());
+            System.out.println(sectionInfo[i].getCourse());
             System.out.print("Section: ");
-            System.out.println(Section[i].getSection());
+            System.out.println(sectionInfo[i].getSection());
             System.out.print("CRN: ");
-            System.out.println(Section[i].getCRN());
+            System.out.println(sectionInfo[i].getCRN());
             System.out.print("Credits: ");
-            System.out.println(Section[i].getCredits());
+            System.out.println(sectionInfo[i].getCredits());
             System.out.print("Time: ");
-            System.out.println(Section[i].getTime());
+            System.out.println(sectionInfo[i].getTime());
             System.out.print("Days: ");
-            System.out.println(Section[i].getDays());
+            System.out.println(sectionInfo[i].getDays());
             System.out.println(" ");
         }
 
