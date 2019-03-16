@@ -6,7 +6,7 @@ public class SectionListProject {
         SectionList myList = new SectionList();
 
         // load the list with data from a data file
-       // myList.loadArray();
+        myList.loadArray();
 
         // print the entire list of sections
         myList.printArray();
