@@ -51,27 +51,22 @@ public class Section {
     }//end getCapital
 
     public String getSection() {
-
         return Section;
     }//end getSection
 
     public String getCRN(){
-
         return CRN;
     }//end CRN
 
     public int getCredits(){
-
         return Credits;
     }//end Credits
 
     public String getTime(){
-
         return Time;
     }//end Time
 
     public String getDays(){
-
         return Days;
     }//end getDays
 

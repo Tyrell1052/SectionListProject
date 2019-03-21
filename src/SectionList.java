@@ -3,7 +3,11 @@ import java.util.Scanner;
 
 public class SectionList {
 
-    public static void loadArray(Section[] inData) throws Exception{
+    //static Section[] classinfo = new Section[100];
+
+    public static void loadArray(Section[] inData) throws Exception{/* now that i have moved my Array from the main
+     method i am having a little bit of issues getting data to load correctly.  Im thinking that i may not need the
+     inData parameter*/
 
         // temporary variables for the properties to read from the .txt file
         String inSubject;
@@ -21,6 +25,7 @@ public class SectionList {
         // this Scanner object will allow me to read the data from the .txt file
         Scanner inFile = new Scanner(new File(fileName));
 
+
         /*  this while loop will read each lind of data from the .txt file using the
         Scanner object, i will also be using the hasNextLine() method to determine
         if there is another proceeding line of data.
@@ -35,6 +40,7 @@ public class SectionList {
             inTime = inFile.next();
             inDays = inFile.next();
 
+            //System.out.println(inSubject);
             // this will initialize each element in the array with the properties of the State class constructor
 
             inData[count] = new Section(inSubject,inCourse,inSection,inCRN,inCredits,inTime,inDays);
@@ -42,12 +48,18 @@ public class SectionList {
 
         }// end while
 
-        inFile.close();
+        inFile.close();//closing file handle
 
+        SectionList.loadArray(classInfo);/* This will call the loadArray method to load the data from the .txt file
+        into the classInfo array holding 70 elements*/
 
 
     }//end loadArray
 
+    public static Section[] classInfo = new Section[70]; /* making this array outside of any method so i can
+    use the classInfo data in the array in my print method also*/
+
+/*************************************************************************************************************/
     public static void search(Section[] Section){
 
         Scanner keyboard = new Scanner(System.in);
@@ -88,32 +100,35 @@ public class SectionList {
 
     }//end search
 
+ /*************************************************************************************************************/
+
     public static void printArray() throws Exception {
 
-        Section[] sectionInfo = new Section[50]; //
+        //Section[] sectionInfo = new Section[70]; // this is commented out to test other ways of implementation
 
         int i = 0; // loop counter
 
-        SectionList.loadArray(sectionInfo);// call the method to load the array
+        //SectionList.loadArray(sectionInfo);// this is commented out to test other ways of implementation
 
 
         System.out.println("Data from the array of courses:\n");
-        for(i=0; i<50; i++) {
+        for(i=0; i<70; i++) {
             System.out.print("Subject: ");
-            System.out.println(sectionInfo[i].getSubject());
+            System.out.println(classInfo[i].getSubject());
             System.out.print("Course: ");
-            System.out.println(sectionInfo[i].getCourse());
+            System.out.println(classInfo[i].getCourse());
             System.out.print("Section: ");
-            System.out.println(sectionInfo[i].getSection());
+            System.out.println(classInfo[i].getSection());
             System.out.print("CRN: ");
-            System.out.println(sectionInfo[i].getCRN());
+            System.out.println(classInfo[i].getCRN());
             System.out.print("Credits: ");
-            System.out.println(sectionInfo[i].getCredits());
+            System.out.println(classInfo[i].getCredits());
             System.out.print("Time: ");
-            System.out.println(sectionInfo[i].getTime());
+            System.out.println(classInfo[i].getTime());
             System.out.print("Days: ");
-            System.out.println(sectionInfo[i].getDays());
+            System.out.println(classInfo[i].getDays());
             System.out.println(" ");
+            i ++;
         }
 
     }// end printArray
