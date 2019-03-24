@@ -3,24 +3,38 @@ import java.util.Scanner;
 
 public class SectionList {
 
-    //static Section[] classinfo = new Section[100];
+    Section[] registrationInfo = new Section[70];
 
-    public static void loadArray(Section[] inData) throws Exception{/* now that i have moved my Array from the main
-     method i am having a little bit of issues getting data to load correctly.  Im thinking that i may not need the
-     inData parameter*/
+    public SectionList() throws Exception{/*    */
 
-        // temporary variables for the properties to read from the .txt file
-        String inSubject;
-        String inCourse;
-        String inSection;
-        String inCRN;
-        int inCredits = 0;
-        String inTime;
-        String inDays;
+         for(int i = 0; i < registrationInfo.length; i++){
+             registrationInfo[i] = new Section();
+         }//end for loop
+    }//end SectionList constructor
 
-        int count = 0; //loop counter
+    public void loadArray() throws Exception{
 
         String fileName = ("courses.txt");
+        Scanner inFile = new Scanner(new File(fileName));
+
+        while(inFile.hasNext()){
+            for(int i = 0; i < registrationInfo.length; i ++){
+                if(inFile.hasNext()){
+                    registrationInfo[i].setSubject(inFile.next());
+                    registrationInfo[i].setCourse(inFile.next());
+                    registrationInfo[i].setSection(inFile.next());
+
+                }//end if
+            }//end for
+
+        }//end while
+
+
+    }//end loadArray
+
+
+
+        //String fileName = ("courses.txt");
 
         // this Scanner object will allow me to read the data from the .txt file
         Scanner inFile = new Scanner(new File(fileName));
@@ -30,34 +44,11 @@ public class SectionList {
         Scanner object, i will also be using the hasNextLine() method to determine
         if there is another proceeding line of data.
      */
-        while (count < inData.length){
-
-            inSubject = inFile.next();
-            inCourse = inFile.next();
-            inSection = inFile.next();
-            inCRN = inFile.next();
-            inCredits = Integer.parseInt(inFile.next());
-            inTime = inFile.next();
-            inDays = inFile.next();
-
-            //System.out.println(inSubject);
-            // this will initialize each element in the array with the properties of the State class constructor
-
-            inData[count] = new Section(inSubject,inCourse,inSection,inCRN,inCredits,inTime,inDays);
-            count ++; // this will increase the loop counter
-
-        }// end while
 
         inFile.close();//closing file handle
 
-        SectionList.loadArray(classInfo);/* This will call the loadArray method to load the data from the .txt file
-        into the classInfo array holding 70 elements*/
 
-
-    }//end loadArray
-
-    public static Section[] classInfo = new Section[70]; /* making this array outside of any method so i can
-    use the classInfo data in the array in my print method also*/
+    //}//end loadArray
 
 /*************************************************************************************************************/
     public static void search(Section[] Section){
