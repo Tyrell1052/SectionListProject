@@ -19,13 +19,13 @@ public class SectionListProject {
         SectionList myList = new SectionList();
 
         // load the list with data from a data file
-        //myList.loadArray();//commented out only for testing purposes
+        myList.loadArray();//commented out only for testing purposes
 
         // print the entire list of sections
         myList.printArray();
 
         // allow a user to look up a section by CRN
-        //myList.search(); //commented out only for testing purposes
+        myList.search(); //commented out only for testing purposes
 
     }// end main()
 
